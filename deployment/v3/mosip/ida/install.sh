@@ -34,7 +34,7 @@ function installing_ida() {
   echo Installing ida otp
   helm -n $NS install ida-otp mosip/ida-otp --version $CHART_VERSION
 
-  kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status
+  kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status --timeout 2m
   echo Intalled ida services
   return 0
 }
