@@ -1,6 +1,6 @@
 gitRepo:
   uri: https://github.com/oci-mosip/mosip-config
-  version:  oci-v1.2.0.1-v2
+  version:  oci-v1.2.0.1-B2
   ## Folders within the base repo where properties may be found.
   searchFolders: ""
   private: false
