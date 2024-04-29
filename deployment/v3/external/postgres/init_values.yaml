@@ -54,7 +54,7 @@ databases:
     enabled: false
 
   mosip_esignet:
-    enabled: false
+    enabled: true
 
   mosip_mockidentitysystem:
     enabled: false
