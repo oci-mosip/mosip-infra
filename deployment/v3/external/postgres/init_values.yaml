@@ -40,7 +40,7 @@ databases:
 
   mosip_regprc:
     enabled: true
-    branch: release-1.2.0.1
+    branch: release-1.2.0.x
 
   mosip_pms:
     enabled: true
