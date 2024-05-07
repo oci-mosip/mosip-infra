@@ -10,7 +10,7 @@ echo  WARNING: This need to be executed only once at the begining for masterdata
 
 NS=masterdata-loader
 CHART_VERSION=12.0.1-B3
-helm delete masterdata-loader -n $NS
+helm delete masterdata-loader -n $NS --ignore-not-found
 echo Create $NS namespace
 kubectl create ns $NS
 
