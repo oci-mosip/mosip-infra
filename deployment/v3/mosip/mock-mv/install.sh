@@ -10,7 +10,8 @@ NS=abis
 CHART_VERSION=12.0.1-B4
 
 echo Create $NS namespace
-kubectl create ns $NS
+# namespace abis is already created as part of mock-abis setup
+# kubectl create ns $NS
 
 function installing_mockmv() {
   echo Copy configmaps
