@@ -6,3 +6,5 @@ image:
   repository: clamav/clamav
   tag: latest
   pullPolicy: Always
+hpa:
+  enabled: false
