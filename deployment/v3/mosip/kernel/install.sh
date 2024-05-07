@@ -53,7 +53,7 @@ function installing_kernel() {
   echo Installing notifier
   helm -n $NS install notifier mosip/notifier --version $CHART_VERSION
 
-  kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status
+  kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status --timeout 3m
 
   echo Installed kernel services
   return 0
