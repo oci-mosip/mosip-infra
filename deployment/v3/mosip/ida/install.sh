@@ -22,19 +22,10 @@ function installing_ida() {
   sed -i 's/\r$//' copy_cm.sh
   ./copy_cm.sh
 
-  echo "Do you have public domain & valid SSL? (Y/n) "
-  echo "Y: if you have public domain & valid ssl certificate"
-  echo "n: If you don't have a public domain and a valid SSL certificate. Note: It is recommended to use this option only in development environments."
-  read -p "" flag
 
-  if [ -z "$flag" ]; then
-    echo "'flag' was provided; EXITING;"
-    exit 1;
-  fi
   ENABLE_INSECURE=''
-  if [ "$flag" = "n" ]; then
-    ENABLE_INSECURE='--set enable_insecure=true';
-  fi
+  # ENABLE_INSECURE='--set enable_insecure=true';
+
 
   echo Running ida keygen
   helm -n $NS install ida-keygen mosip/keygen --wait --wait-for-jobs  --version $KEYGEN_CHART_VERSION -f keygen_values.yaml
@@ -48,7 +39,7 @@ function installing_ida() {
   echo Installing ida otp
   helm -n $NS install ida-otp mosip/ida-otp --version $CHART_VERSION $ENABLE_INSECURE
 
-  kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status
+  kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status 
   echo Intalled ida services
   return 0
 }
