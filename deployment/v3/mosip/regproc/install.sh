@@ -67,7 +67,7 @@ function installing_regproc() {
   echo Installing regproc-reprocess
   helm -n $NS install regproc-reprocess mosip/regproc-reprocess --version $CHART_VERSION
 
-  kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status
+  kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status --timeout 3m
   echo Intalled regproc services
   return 0
 }
