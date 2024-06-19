@@ -12,7 +12,7 @@ databases:
 
   mosip_keymgr:
     enabled: true 
-    branch: release-1.2.0.1
+    branch: release-1.2.0.1-B4
 
   mosip_kernel:
     enabled: true
