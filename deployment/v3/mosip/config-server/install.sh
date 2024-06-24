@@ -34,3 +34,8 @@ sed -i 's/\r$//' copy_secrets.sh
 echo Installing config-server
 helm -n $NS install config-server mosip/config-server -f values.yaml --wait --version $CHART_VERSION
 echo Installed Config-server.
+# Temporary fix to add the missing property as env var to config-server which is required for (esignet mosip.signup.host)
+echo "Patching the config-server for esignet property mosip.signup.host"
+kubectl -n config-server set env --keys=mosip-signup-host --from=configmap/global deployment/config-server --prefix=SPRING_CLOUD_CONFIG_SERVER_OVERRIDES_
+kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status
+echo "Config server patched and started"
